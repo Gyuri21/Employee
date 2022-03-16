@@ -22,5 +22,5 @@ Route::get( "/add-employee", [ EmployeeController::class, "addEmployee" ]);
 Route::post( "/save-employee", [ EmployeeController::class, "storeEmployee" ]);
 Route::get( "/list-employee", [ EmployeeController::class, "listEmployee" ]);
 Route::get( "/delete/{id}", [ EmployeeController::class, "deleteEmployee" ]);
-Route::get( "/show/{id}", [ EmployeeController::class, "showEmployee" ]);
-Route::post( "/update-employee", [ EmployeeController::class, "updateEmployee" ]);
+Route::get('/employees/{id}', [EmployeeController::class, 'show']);
+Route::put('/employees/{employees}/edit', [EmployeeController::class, 'update']);

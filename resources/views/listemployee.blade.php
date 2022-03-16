@@ -39,7 +39,7 @@
                 <td>{{ $employee->salary }}</td>
                 <td>
                     <a class="btn btn-danger" href="/delete/{{ $employee->id }}">Törlés</a>
-                    <a class="btn btn-info" href="/show/{{ $employee->id }}">Szerkesztés</a>
+                    <a class="btn btn-info" href="/employees/{{ $employee->id }}">Szerkesztés</a>
                 </td>
             </tr>
       @endforeach

@@ -44,29 +44,24 @@ class EmployeeController extends Controller
         session()->flash( "success", "Tanuló törölve" );
         return redirect( "/list-employee" );
     }
-    public function showEmployee( $id ) {
+    public function show( $id ) {
  
         $employees = Employee::find( $id );
      
-        return view( "showemployee", [
+        return view( "show", [
             "employees" => $employees
         ]);
     
     }
-    public function updateEmployee( Request $request ) {
- 
-        $employees = Employee::find( $request[ "employees_id" ]);
-     
-        $employees->name = $request[ "name" ];
-        $employees->city = $request[ "city" ];
-        $employees->borndate = $request[ "borndate" ];
-        $employees->salary = $request[ "salary" ];
-     
-        $employees->save();
-     
-        session()->flash( "success", "Sikeres frissítés" );
-     
-        return redirect( "/list-employee" );
+    public function update(Request $request, Employee $employees)
+    {
+        $employees->update([
+            'name' => request('name'),
+            'city' => request('city'),
+            'borndate' => request('borndate'),
+            'salary' => request('salary')
+        ]);
+        return redirect('list-employee');
     }
     
 }
